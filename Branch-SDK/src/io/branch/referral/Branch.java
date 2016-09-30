@@ -509,11 +509,9 @@ public class Branch implements BranchViewHandler.IBranchViewEvents, SystemObserv
         }
         branchReferral_.context_ = context.getApplicationContext();
 
-        /* If {@link Application} is instantiated register for activity life cycle events. */
-        if (context instanceof BranchApp) {
-            isAutoSessionMode_ = true;
-            branchReferral_.setActivityLifeCycleObserver((Application) context);
-        }
+        // If {@link Application} is instantiated register for activity life cycle events.
+        isAutoSessionMode_ = true;
+        branchReferral_.setActivityLifeCycleObserver((Application) context);
 
         return branchReferral_;
     }

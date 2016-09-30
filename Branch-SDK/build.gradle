@@ -3,6 +3,14 @@ apply plugin: 'com.android.library'
 //File name for out put jar created
 def jarFileName
 
+if (JavaVersion.current().isJava8Compatible()) {
+    allprojects {
+        tasks.withType(Javadoc) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     compile 'com.android.support:support-annotations:22.2.0'
